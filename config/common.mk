@@ -99,10 +99,6 @@ PRODUCT_COPY_FILES += \
 
 # MoKee-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/app/iFlyIME.apk:system/app/iFlyIME.apk \
-    vendor/mk/prebuilt/common/app/MoKeeForum.apk:system/app/MoKeeForum.apk \
-    vendor/mk/prebuilt/common/app/MarketExt.apk:system/app/MarketExt.apk \
-    vendor/mk/prebuilt/common/app/MoKeeMarket.apk:system/app/MoKeeMarket.apk \
     vendor/mk/prebuilt/common/lib/libbdpush_V1_0.so:system/lib/libbdpush_V1_0.so \
     vendor/mk/prebuilt/common/lib/libmsc-v7.so:system/lib/libmsc-v7.so \
     vendor/mk/prebuilt/common/lib/libsmartaiwrite-jni-v5.so:system/lib/libsmartaiwrite-jni-v5.so \
@@ -170,8 +166,6 @@ PRODUCT_PACKAGES += \
     Apollo \
     CMFileManager \
     LockClock \
-    MoKeeHelper \
-    MoKeeSetupWizard \
     Notepad \
     WhisperPush
 
@@ -277,14 +271,10 @@ else
     MK_EXTRAVERSION :=
 endif
 
-ifeq ($(MK_BUILDTYPE), RELEASE)
-    MK_VERSION := MK$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(MK_BUILD)-$(shell date +%y%m%d)-RELEASE
-else
-    MK_VERSION := MK$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(MK_BUILD)-$(shell date +%Y%m%d%H%M)-$(MK_BUILDTYPE)
-endif
+Stalk_Version=4.4.100
+CM_VERSION := LiteStalk-$(Stalk_Version)-$(shell date -u +%Y%m%d)$(CM_EXTRAVERSION)-$(CM_BUILD)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.mk.support=bbs.mfunz.com \
   ro.mk.version=$(MK_VERSION) \
   ro.modversion=$(MK_VERSION)
 
