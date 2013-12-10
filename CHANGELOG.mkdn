@@ -1,4 +1,4 @@
-MoKee OpenSource
+LiteStalk OpenSource
 ===============
 
 Visit http://github.com/MoKee for full source and git access.
