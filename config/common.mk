@@ -272,12 +272,12 @@ else
 endif
 
 Stalk_Version=4.4.100
-CM_VERSION := LiteStalk-$(Stalk_Version)-$(shell date -u +%Y%m%d)$(CM_EXTRAVERSION)-$(CM_BUILD)
+CM_VERSION := LiteStalk-$(Stalk_Version)-$(shell date -u +%Y%m%d)$(MK_EXTRAVERSION)-$(MK_BUILD)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.mk.version=$(MK_VERSION) \
-  ro.modversion=$(MK_VERSION)
-
+  ro.mk.version=LiteStalk-$(Stalk_Version) \
+  ro.modversion=LiteStalk-$(Stalk_Version)
+  
 -include vendor/cm-priv/keys/keys.mk
 
 -include $(WORKSPACE)/hudson/image-auto-bits.mk
